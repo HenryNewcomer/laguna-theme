@@ -38,17 +38,6 @@
 ;; Add flycheck
 ;; Figure out how to change foreground color for mouse-face (such as inside org)
 
-;; TEMP (Mannually enable these)
-(defun laguna-refresh-theme ()
-  (interactive)
-  (rainbow-mode t)
-  (load-theme 'laguna t))
-(add-hook
-  'after-save-hook
-  'laguna-refresh-theme
-  nil
-  t)
-
 ;; Color palette
 (let (
        (Laguna/main "#39a063") ;; main
