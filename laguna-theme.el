@@ -40,30 +40,27 @@
 
 ;; Color palette
 (let (
-       (Laguna/main "#39a063") ;; main
-       (Laguna/keyword "#554f91") ;;return let
-       (Laguna/search-bg "#e4a568") ;; Highlighted search text
-       (Laguna/search-fg "#000") ;; Highlighted search text
-       (Laguna/warning "#e34e3e") ;; Red(ish) color
-       (Laguna/built-in "#585ca6") ;; :foreground, :background, :weight, etc.
+       (Laguna/main "#39a063") ;; ex. main function
+       (Laguna/keyword "#554f91") ;; ex. return,  let
+       (Laguna/search-bg "#4a2579") ;; ex. Highlighted search text
+       (Laguna/search-fg "#bb9ddf") ;; ex. Highlighted search text
+       (Laguna/warning "#e34e3e") ;; Red(ish) color; ex. errors, magit changes (-)
+       (Laguna/built-in "#585ca6") ;; ex. :foreground, :background, :weight, etc.
        (Laguna/preprocessor "#423f68") ;; #include
        (Laguna/quotes "#65a9e3")
-       (Laguna/elisp-func-desc "#65a9e3");; Elisp function descriptions
-       (Laguna/param-names "#f0edd2") ;; Parameter/argument names
+       (Laguna/elisp-func-desc "#65a9e3")
+       (Laguna/param-names "#f0edd2")
        (Laguna/minibuffer-prompt "#5fabe1")
-       (Laguna/consquotest "#36585c") ;; std in std::getchar
+       (Laguna/consquotest "#36585c") ;; ex. std in std::getchar
        (Laguna/comment-symbols "#424857")
        (Laguna/comment-text "#424857")
        (Laguna/mode-line-bg "#090b12")
        (Laguna/mode-line-fg "#707f9c")
        (Laguna/vertical-line "#141923")
-       (Laguna/types "#c59962") ;; type (function type, param type, etc)
-       ;; (Laguna/cursor-bg "#c59962")
+       (Laguna/types "#c59962") ;; Function type, param type, etc. (ex. int, char, ...)
        (Laguna/cursor-bg "#b0c3e9")
        (Laguna/cursor-fg "#141922")
-       (Laguna/fringe "#0c0f15") ;; outside border of window (and splits)
-       (Laguna/region-bg "#478540")
-       (Laguna/region-fg "#b2ddad")
+       (Laguna/fringe "#0c0f15") ;; Outside border of window (and splits)
        (Laguna/line-number-fg "#293144") ;; The font color for line numbers
        (Laguna/current-line-text-area-bg "#0c0f15")
        (Laguna/current-line-side-bg "#4b667e")
@@ -71,7 +68,7 @@
 
        ;; Gradients (Parentheses, org heiarchy, etc.)
        (Laguna/gradient0 "#215529")
-       (Laguna/gradient1 "#468877") ;; () within std::getchar()
+       (Laguna/gradient1 "#468877") ;; ex. () within std::getchar()
        (Laguna/gradient2 "#67b1cd")
        (Laguna/gradient3 "#98c3f1")
        (Laguna/gradient4 "#a1aaf1")
@@ -81,15 +78,21 @@
 
        (Laguna/number "#834079") ;; FIXME "Highlight numbers" pkg overrides rainbow-mode functionality
 
+       (Laguna/region-bg "#5a798d")
+       (Laguna/region-fg "#141923")
+
        ;; Not yet configured...
        (Laguna/link "#0f0")
        (Laguna/undefined1 "#0f0")
        (Laguna/undefined2 "#0f0")
        (Laguna/undefined3 "#0f0")
+       (Laguna/undefined4 "#0f0") ;; TODO Remove?
+       ;; (Laguna/good-bg "#478540") ;; Success, magit changes (+)
+       ;; (Laguna/good-fg "#b2ddad") ;; Success, magit changes (+)
 
        ;; Main background and foreground colors
        (Laguna/bg "#141922")
-       (Laguna/fg "#3e6f92")) ;; ::getchar - regular text color
+       (Laguna/fg "#3e6f92")) ;; Regular text color; ex. ::getchar in std::getchar()
 
   ;; Set faces
   (custom-theme-set-faces
@@ -98,6 +101,7 @@
     `(cursor  ((t (:foreground ,Laguna/fg :background ,Laguna/cursor-bg))))
     `(face-spec-set column-enforce-face '((t (:foreground warning :bold t :underline t))))
     `(fringe  ((t (:background ,Laguna/fringe))))
+    `(highlight  ((t (:foreground ,Laguna/region-fg :background ,Laguna/region-bg))))
     `(highlight-numbers-number ((t (:foreground ,Laguna/number :weight bold))))
     `(link    ((t (:foreground ,Laguna/link :underline t))))
     `(region  ((t (:foreground ,Laguna/region-fg :background ,Laguna/region-bg))))
@@ -685,7 +689,7 @@
     `(magit-diff-none    ((t (:foreground ,Laguna/fg :background ,Laguna/region-bg))))
     `(magit-header    ((t (:foreground ,Laguna/keyword :background nil))))
     `(magit-item-highlight   ((t (:foreground nil :background ,Laguna/region-bg))))
-    ;;`(magit-item-mark    ((t (:foreground nil :background "darkolivegreen"))))
+    ;;`(magit-item-mark    ((t (:foreground nil :background ,Laguna/undefined4))
     ;;`(magit-key-mode-args-face   ((t (:foreground "black" :background "yellow3"))))
     `(magit-key-mode-button-face   ((t (:foreground ,Laguna/built-in :background nil))))
     `(magit-key-mode-header-face   ((t (:foreground ,Laguna/keyword :background nil))))
@@ -695,7 +699,7 @@
     `(magit-log-date    ((t (:foreground nil :background nil))))
     `(magit-log-graph    ((t (:foreground "grey80" :background nil))))
     ;;`(magit-log-head-label-bisect-bad  ((t (:foreground "IndianRed4" :background "IndianRed1"))))
-    ;;`(magit-log-head-label-bisect-good  ((t (:foreground "dark olive green" :background "light green"))))
+    ;;`(magit-log-head-label-bisect-good  ((t (:foreground ,Laguna/undefined4 :background "light green"))))
     ;;`(magit-log-head-label-default  ((t (:foreground nil :background "Grey50"))))
     ;;`(magit-log-head-label-head  ((t (:foreground "White" :background "Grey20"))))
     ;;`(magit-log-head-label-local  ((t (:foreground "LightSkyBlue1" :background "Grey13"))))
@@ -705,7 +709,7 @@
     ;;`(magit-log-message   ((t (:foreground nil :background nil))))
     ;;`(magit-log-reflog-label-amend  ((t (:foreground "goldenrod4" :background "LemonChiffon1"))))
     ;;`(magit-log-reflog-label-checkout  ((t (:foreground "LightSkyBlue1" :background "Grey13"))))
-    ;;`(magit-log-reflog-label-cherry-pick ((t (:foreground "dark olive green" :background "light green"))))
+    ;;`(magit-log-reflog-label-cherry-pick ((t (:foreground ,Laguna/undefined4 :background "light green"))))
     ;;`(magit-log-reflog-label-commit  ((t (:foreground "goldenrod4" :background "LemonChiffon1"))))
     ;;`(magit-log-reflog-label-merge  ((t (:foreground "goldenrod4" :background "LemonChiffon1"))))
     ;;`(magit-log-reflog-label-other  ((t (:foreground nil :background "Grey50"))))
