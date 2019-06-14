@@ -1,7 +1,7 @@
 ;;; laguna-theme.el --- A theme that's easy on the eyes & focuses on importance.
 ;;
 ;; Filename: laguna-theme.el
-;; Description: Easy on the eyes, focus on importance.
+;; Description: Easy on the eyes; focus on importance.
 ;; Author: Henry Newcomer <a.cliche.email@gmail.com>
 ;; URL: https://github.com/henrynewcomer/laguna
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -32,7 +32,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(deftheme laguna "NOTE: SOME DESCRIPTION")
+(deftheme laguna "A theme that's easy on the eyes & focuses on importance.")
 
 ;; TODO:
 ;; Add flycheck
@@ -41,7 +41,7 @@
 ;; Color palette
 (let (
        (Laguna/main "#39a063") ;; main
-       (Laguna/blue "#554f91") ;;return let
+       (Laguna/keyword "#554f91") ;;return let
        (Laguna/search-bg "#e4a568") ;; Highlighted search text
        (Laguna/search-fg "#000") ;; Highlighted search text
        (Laguna/warning "#e34e3e") ;; Red(ish) color
@@ -51,7 +51,7 @@
        (Laguna/elisp-func-desc "#65a9e3");; Elisp function descriptions
        (Laguna/param-names "#f0edd2") ;; Parameter/argument names
        (Laguna/minibuffer-prompt "#5fabe1")
-       (Laguna/purple "#36585c") ;; std in std::getchar
+       (Laguna/consquotest "#36585c") ;; std in std::getchar
        (Laguna/comment-symbols "#424857")
        (Laguna/comment-text "#424857")
        (Laguna/mode-line-bg "#090b12")
@@ -107,11 +107,11 @@
     `(font-lock-comment-face  ((t (:foreground ,Laguna/comment-text))))
     `(font-lock-comment-delimiter-face ((t (:foreground ,Laguna/comment-symbols))))
     `(font-lock-function-name-face ((t (:foreground ,Laguna/main))))
-    `(font-lock-keyword-face  ((t (:foreground ,Laguna/blue))))
+    `(font-lock-keyword-face  ((t (:foreground ,Laguna/keyword))))
     `(font-lock-string-face  ((t (:foreground ,Laguna/quotes))))
     `(font-lock-preprocessor-face ((t (:foreground ,Laguna/preprocessor))))
     `(font-lock-type-face  ((t (:foreground ,Laguna/types :weight bold))))
-    `(font-lock-consquotest-face  ((t (:foreground ,Laguna/purple))))
+    `(font-lock-consquotest-face  ((t (:foreground ,Laguna/consquotest))))
     `(font-lock-warning-face  ((t (:foreground ,Laguna/warning :weight bold))))
     `(font-lock-variable-name-face ((t (:foreground ,Laguna/param-names))))
     `(font-lock-doc-face   ((t (:foreground ,Laguna/elisp-func-desc))))
@@ -143,7 +143,7 @@
 
     `(avy-background-face  ((t (:foreground ,Laguna/comment-symbols :background nil))))
     `(avy-lead-face  ((t (:foreground "white" :background ,Laguna/types))))
-    `(avy-lead-face-0  ((t (:foreground "white" :background ,Laguna/blue))))
+    `(avy-lead-face-0  ((t (:foreground "white" :background ,Laguna/keyword))))
     `(avy-lead-face-1  ((t (:foreground "white" :background ,Laguna/fg))))
 
     `(vertical-border ((t (:background ,Laguna/mode-line-bg :foreground ,Laguna/vertical-line))))
@@ -167,8 +167,8 @@
     `(compilation-info  ((t (:foreground ,Laguna/main :weight bold))))
 
     ;; eshell
-    `(eshell-prompt ((t (:foreground ,Laguna/purple))))
-    `(eshell-ls-directory ((t (:foreground ,Laguna/blue))))
+    `(eshell-prompt ((t (:foreground ,Laguna/consquotest))))
+    `(eshell-ls-directory ((t (:foreground ,Laguna/keyword))))
     `(eshell-ls-product ((t (:foreground ,Laguna/preprocessor))))
     `(eshell-ls-backup ((t (:foreground ,Laguna/mode-line-fg :background ,Laguna/mode-line-bg))))
     `(eshell-ls-executable ((t (:foreground ,Laguna/main))))
@@ -181,28 +181,28 @@
     `(term-color-red ((t (:foreground ,Laguna/types :background ,Laguna/types))))
     `(term-color-green ((t (:foreground ,Laguna/main :background ,Laguna/main))))
     `(term-color-yellow ((t (:foreground ,Laguna/param-names :background ,Laguna/param-names))))
-    `(term-color-blue ((t (:foreground ,Laguna/blue :background ,Laguna/blue))))
-    `(term-color-magenta ((t (:foreground ,Laguna/purple :background ,Laguna/purple))))
+    `(term-color-blue ((t (:foreground ,Laguna/keyword :background ,Laguna/keyword))))
+    `(term-color-magenta ((t (:foreground ,Laguna/consquotest :background ,Laguna/consquotest))))
     `(term-color-cyan ((t (:foreground ,Laguna/link :background ,Laguna/link))))
     `(term-color-white ((t (:foreground ,Laguna/fg :background ,Laguna/fg))))
     `(term-default-fg-color ((t (:inherit Laguna/fg))))
     `(term-default-bg-color ((t (:inherit Laguna/bg))))
 
     ;; erc
-    `(erc-nick-default-face ((t (:foreground ,Laguna/blue))))
+    `(erc-nick-default-face ((t (:foreground ,Laguna/keyword))))
     `(erc-my-nick-face ((t (:foreground ,Laguna/param-names))))
     `(erc-current-nick-face ((t (:foreground ,Laguna/built-in))))
     `(erc-notice-face ((t (:foreground ,Laguna/main))))
     `(erc-input-face ((t (:foreground "white"))))
     `(erc-timestamp-face ((t (:foreground ,Laguna/mode-line-bg))))
-    `(erc-prompt-face ((t (:foreground "#191919" :background ,Laguna/purple))))
+    `(erc-prompt-face ((t (:foreground "#191919" :background ,Laguna/consquotest))))
 
     ;;undo-tree
     `(undo-tree-visualizer-active-branch-face ((t (:inherit default))))
     `(undo-tree-visualizer-default-face ((t (:inherit font-lock-comment-face))))
     `(undo-tree-visualizer-register-face ((t (:foreground ,Laguna/param-names :background nil))))
     `(undo-tree-visualizer-current-face ((t (:foreground ,Laguna/types :background nil))))
-    `(undo-tree-visualizer-unmodified-face ((t (:foreground ,Laguna/purple :background nil))))
+    `(undo-tree-visualizer-unmodified-face ((t (:foreground ,Laguna/consquotest :background nil))))
 
     ;;show paren
     ;; TODO: Change foreground color?
@@ -214,7 +214,7 @@
 
     ;; ido
     `(ido-only-match  ((t (:foreground ,Laguna/main))))
-    `(ido-first-match  ((t (:foreground ,Laguna/blue))))
+    `(ido-first-match  ((t (:foreground ,Laguna/keyword))))
     `(ido-incomplete-regexp ((t (:foreground ,Laguna/types))))
     `(ido-subdir   ((t (:foreground ,Laguna/param-names))))
     ;; flx-ido
@@ -223,7 +223,7 @@
     ;;js2
     `(js2-external-variable  ((t (:foreground ,Laguna/preprocessor :background nil))))
     `(js2-function-param   ((t (:foreground ,Laguna/undefined3 :background nil))))
-    `(js2-insquotesce-member  ((t (:foreground ,Laguna/purple :background nil))))
+    `(js2-insquotesce-member  ((t (:foreground ,Laguna/consquotest :background nil))))
     `(js2-jsdoc-html-tag-delimiter ((t (:foreground ,Laguna/comment-symbols :background nil))))
     `(js2-jsdoc-html-tag-name  ((t (:foreground ,Laguna/vertical-line :background nil))))
     `(js2-jsdoc-tag   ((t (:foreground ,Laguna/undefined2 :background nil))))
@@ -244,15 +244,15 @@
     `(web-mode-builtin-face   ((t (:inherit font-lock-builtin-face))))
     `(web-mode-comment-face   ((t (:inherit font-lock-comment-face))))
     `(web-mode-comment-keyword-face  ((t (:foreground nil :background nil :weight bold))))
-    `(web-mode-consquotest-face   ((t (:foreground ,Laguna/purple :background nil))))
-    `(web-mode-css-at-rule-face   ((t (:foreground ,Laguna/purple :background nil))))
+    `(web-mode-consquotest-face   ((t (:foreground ,Laguna/consquotest :background nil))))
+    `(web-mode-css-at-rule-face   ((t (:foreground ,Laguna/consquotest :background nil))))
     `(web-mode-css-color-face   ((t (:foreground ,Laguna/built-in :background nil))))
     `(web-mode-css-comment-face   ((t (:inherit font-lock-comment-face))))
     `(web-mode-css-function-face   ((t (:foreground ,Laguna/built-in :background nil))))
     `(web-mode-css-priority-face   ((t (:foreground ,Laguna/built-in :background nil))))
     `(web-mode-css-property-name-face  ((t (:inherit font-lock-variable-name-face))))
     `(web-mode-css-pseudo-class-face  ((t (:foreground ,Laguna/built-in :background nil))))
-    `(web-mode-css-selector-face   ((t (:foreground ,Laguna/blue :background nil))))
+    `(web-mode-css-selector-face   ((t (:foreground ,Laguna/keyword :background nil))))
     `(web-mode-css-string-face   ((t (:foreground ,Laguna/quotes :background nil))))
     `(web-mode-current-element-highlight-face ((t (:foreground nil :background "#000000"))))
     `(web-mode-doctype-face   ((t (:inherit font-lock-doc-face))))
@@ -301,16 +301,16 @@
     ;;`(helm-buffer-saved-out  ((t ())))
     ;;`(helm-buffer-size   ((t ())))
     `(helm-candidate-number  ((t (:foreground ,Laguna/main :background ,Laguna/mode-line-bg))))
-    `(helm-ff-directory   ((t (:foreground ,Laguna/blue))))
+    `(helm-ff-directory   ((t (:foreground ,Laguna/keyword))))
     `(helm-ff-executable   ((t (:foreground ,Laguna/main))))
     `(helm-ff-file   ((t (:inherit default))))
     ;;`(helm-ff-invalid-symlink  ((t ())))
     `(helm-ff-prefix   ((t (:foreground ,Laguna/types))))
     ;;`(helm-ff-symlink   ((t ())))
     ;;`(helm-grep-cmd-line  ((t ())))
-    `(helm-grep-file   ((t (:foreground ,Laguna/blue))))
+    `(helm-grep-file   ((t (:foreground ,Laguna/keyword))))
     ;;`(helm-grep-finish   ((t ())))
-    `(helm-grep-lineno   ((t (:foreground ,Laguna/purple))))
+    `(helm-grep-lineno   ((t (:foreground ,Laguna/consquotest))))
     `(helm-grep-match   ((t (:foreground ,Laguna/fg :background ,Laguna/region-bg))))
     ;;`(helm-grep-running  ((t ())))
     `(helm-header   ((t (:foreground ,Laguna/bg :background ,Laguna/fg))))
@@ -319,12 +319,12 @@
     ;;`(helm-history-remote  ((t ())))
     ;;`(helm-lisp-completion-info ((t ())))
     ;;`(helm-lisp-show-completion ((t ())))
-    `(helm-match    ((t (:foreground ,Laguna/blue :background ,Laguna/vertical-line))))
+    `(helm-match    ((t (:foreground ,Laguna/keyword :background ,Laguna/vertical-line))))
     ;;`(helm-moccur-buffer  ((t ())))
     `(helm-selection   ((t (:foreground ,Laguna/param-names :background ,Laguna/region-bg :weight bold))))
     ;;`(helm-selection-line  ((t ())))
     ;;`(helm-separator   ((t ())))
-    `(helm-source-header   ((t (:foreground ,Laguna/vertical-line :background ,Laguna/blue))))
+    `(helm-source-header   ((t (:foreground ,Laguna/vertical-line :background ,Laguna/keyword))))
     ;;`(helm-visible-mark  ((t ())))
 
     ;; jabber
@@ -336,7 +336,7 @@
     `(jabber-chat-prompt-system  ((t (:foreground ,Laguna/param-names :background nil :underline nil :weight bold))))
     `(jabber-chat-text-foreign  ((t (:inherit default :background nil))))
     `(jabber-chat-text-local  ((t (:inherit default :weight bold))))
-    `(jabber-rare-time-face  ((t (:foreground ,Laguna/purple :background nil :underline t))))
+    `(jabber-rare-time-face  ((t (:foreground ,Laguna/consquotest :background nil :underline t))))
     `(jabber-roster-user-away  ((t (:inherit font-lock-string-face))))
     `(jabber-roster-user-chatty  ((t (:foreground ,Laguna/preprocessor :background nil :weight bold))))
     ;;`(jabber-roster-user-dnd  ((t (:foreground "red" :background nil))))
@@ -363,7 +363,7 @@
 
     ;; auto complete
     `(ac-candidate-face   ((t (:foreground "black" :background ,Laguna/fg))))
-    `(ac-selection-face   ((t (:foreground ,Laguna/fg :background ,Laguna/blue))))
+    `(ac-selection-face   ((t (:foreground ,Laguna/fg :background ,Laguna/keyword))))
     `(ac-candidate-mouse-face  ((t (:inherit ac-selection-face))))
     `(ac-clang-candidate-face  ((t (:inherit ac-candidate-face))))
     `(ac-clang-selection-face  ((t (:inherit ac-selection-face))))
@@ -385,15 +385,15 @@
     `(company-scrollbar-fg             ((t (:foreground nil :background ,Laguna/comment-symbols))))
     `(company-tooltip                  ((t (:foreground ,Laguna/bg :background ,Laguna/fg))))
     `(company-tooltip-common           ((t (:foreground ,Laguna/undefined2 :background ,Laguna/fg))))
-    `(company-tooltip-common-selection ((t (:foreground ,Laguna/bg :background ,Laguna/blue))))
+    `(company-tooltip-common-selection ((t (:foreground ,Laguna/bg :background ,Laguna/keyword))))
     `(company-tooltip-mouse            ((t (:foreground nil :background ,Laguna/built-in))))
-    `(company-tooltip-selection        ((t (:foreground ,Laguna/comment-symbols :background ,Laguna/blue))))
+    `(company-tooltip-selection        ((t (:foreground ,Laguna/comment-symbols :background ,Laguna/keyword))))
 
 
     ;; w3m
     ;;`(w3m-anchor   ((t (:foreground "cyan" :background nil))))
     ;;`(w3m-arrived-anchor  ((t (:foreground "LightSkyBlue" :background nil))))
-    `(w3m-bold    ((t (:foreground ,Laguna/blue :background nil :weight bold))))
+    `(w3m-bold    ((t (:foreground ,Laguna/keyword :background nil :weight bold))))
     `(w3m-current-anchor   ((t (:foreground nil :background nil :underline t :weight bold))))
     ;;`(w3m-form    ((t (:foreground "red" :background nil :underline t))))
     ;;`(w3m-form-button   ((t (:foreground "red" :background nil :underline t))))
@@ -459,11 +459,11 @@
     ;;`(ediff-odd-diff-Ancestor  ((t ())))
 
     ;; man pages
-    `(Man-overstrike ((t (:foreground ,Laguna/blue))))
+    `(Man-overstrike ((t (:foreground ,Laguna/keyword))))
     `(Man-underline ((t (:foreground ,Laguna/param-names))))
 
     `(slime-apropos-label  ((t (:foreground ,Laguna/types :background nil))))
-    `(slime-apropos-symbol  ((t (:foreground ,Laguna/blue :background nil))))
+    `(slime-apropos-symbol  ((t (:foreground ,Laguna/keyword :background nil))))
     `(slime-error-face  ((t (:foreground ,Laguna/types :background nil :underline t))))
     `(slime-highlight-face  ((t (:foreground nil :background ,Laguna/undefined3))))
     `(slime-inspector-action-face  ((t (:foreground "red" :background nil))))
@@ -554,10 +554,10 @@
     `(message-header-cc  ((t (:foreground ,Laguna/built-in :background nil :weight bold))))
     `(message-header-name  ((t (:foreground ,Laguna/preprocessor :background nil))))
     `(message-header-newsgroups  ((t (:foreground ,Laguna/elisp-func-desc :background nil :weight bold))))
-    `(message-header-other  ((t (:foreground ,Laguna/blue :background nil))))
+    `(message-header-other  ((t (:foreground ,Laguna/keyword :background nil))))
     `(message-header-subject  ((t (:foreground ,Laguna/quotes :background nil))))
     `(message-header-to  ((t (:foreground ,Laguna/param-names :background nil :weight bold))))
-    `(message-header-xheader  ((t (:foreground ,Laguna/purple :background nil))))
+    `(message-header-xheader  ((t (:foreground ,Laguna/consquotest :background nil))))
     `(message-mml  ((t (:foreground ,Laguna/elisp-func-desc :background nil))))
 
     ;; gnus
@@ -583,8 +583,8 @@
     `(gnus-emphasis-underline-bold  ((t (:foreground nil :background nil :underline t :weight bold))))
     `(gnus-emphasis-underline-bold-italic ((t (:foreground nil :background nil :underline t :weight bold))))
     `(gnus-emphasis-underline-italic  ((t (:foreground nil :background nil :underline t))))
-    `(gnus-group-mail-1    ((t (:foreground ,Laguna/blue :background nil :weight bold))))
-    `(gnus-group-mail-1-empty   ((t (:foreground ,Laguna/blue :background nil))))
+    `(gnus-group-mail-1    ((t (:foreground ,Laguna/keyword :background nil :weight bold))))
+    `(gnus-group-mail-1-empty   ((t (:foreground ,Laguna/keyword :background nil))))
     `(gnus-group-mail-2    ((t (:foreground ,Laguna/link :background nil :weight bold))))
     `(gnus-group-mail-2-empty   ((t (:foreground ,Laguna/link :background nil))))
     `(gnus-group-mail-3    ((t (:foreground ,Laguna/built-in :background nil :weight bold))))
@@ -644,7 +644,7 @@
     `(whitespace-empty   ((t (:foreground ,Laguna/comment-text :background "comment-text10"))))
     `(whitespace-hspace   ((t (:foreground ,Laguna/comment-text :background "grey11"))))
     `(whitespace-indentation  ((t (:foreground ,Laguna/comment-text :background "comment-text12"))))
-    `(whitespace-line   ((t (:foreground ,Laguna/purple :background nil))))
+    `(whitespace-line   ((t (:foreground ,Laguna/consquotest :background nil))))
     `(whitespace-newline   ((t (:foreground ,Laguna/comment-text :background nil))))
     `(whitespace-space   ((t (:foreground ,Laguna/comment-text :background nil))))
     `(whitespace-space-after-tab  ((t (:foreground ,Laguna/comment-text :background "comment-text13"))))
@@ -654,8 +654,8 @@
 
     ;; magit
     ;; new
-    `(magit-section-heading        ((t (:foreground ,Laguna/blue, :background nil))))
-    `(magit-hash                   ((t (:foreground ,Laguna/purple :background nil))))
+    `(magit-section-heading        ((t (:foreground ,Laguna/keyword, :background nil))))
+    `(magit-hash                   ((t (:foreground ,Laguna/consquotest :background nil))))
     `(magit-branch-local           ((t (:foreground ,Laguna/preprocessor :background nil))))
     `(magit-branch-remote          ((t (:foreground ,Laguna/param-names :background nil))))
 
@@ -664,11 +664,11 @@
     `(magit-diff-added             ((t (:background nil :foreground ,Laguna/main))))
     `(magit-diff-removed           ((t (:background nil :foreground ,Laguna/types))))
 
-    `(magit-blame-date             ((t (:foreground ,Laguna/purple :background "grey25"))))
-    `(magit-blame-hash             ((t (:foreground ,Laguna/purple :background "grey25"))))
-    `(magit-blame-heading          ((t (:foreground ,Laguna/blue :background "grey25"))))
+    `(magit-blame-date             ((t (:foreground ,Laguna/consquotest :background "grey25"))))
+    `(magit-blame-hash             ((t (:foreground ,Laguna/consquotest :background "grey25"))))
+    `(magit-blame-heading          ((t (:foreground ,Laguna/keyword :background "grey25"))))
     `(magit-blame-name             ((t (:foreground ,Laguna/main :background "grey25"))))
-    `(magit-blame-summary          ((t (:foreground ,Laguna/blue :background "grey25"))))
+    `(magit-blame-summary          ((t (:foreground ,Laguna/keyword :background "grey25"))))
 
     ;; old
     `(magit-branch    ((t (:foreground ,Laguna/preprocessor :background nil))))
@@ -676,19 +676,19 @@
     ;;`(magit-cherry-unmatched   ((t (:foreground "magenta" :background nil))))
     `(magit-diff-add    ((t (:background nil :foreground ,Laguna/main))))
     `(magit-diff-del    ((t (:background nil :foreground ,Laguna/types))))
-    `(magit-diff-file-header   ((t (:foreground ,Laguna/bg :background ,Laguna/blue :weight bold))))
-    `(magit-diff-hunk-header   ((t (:foreground ,Laguna/bg :background ,Laguna/blue))))
+    `(magit-diff-file-header   ((t (:foreground ,Laguna/bg :background ,Laguna/keyword :weight bold))))
+    `(magit-diff-hunk-header   ((t (:foreground ,Laguna/bg :background ,Laguna/keyword))))
     `(magit-diff-merge-current   ((t (:foreground ,Laguna/preprocessor :background nil))))
     `(magit-diff-merge-diff3-separator  ((t (:foreground ,Laguna/preprocessor :background nil))))
     `(magit-diff-merge-proposed   ((t (:foreground ,Laguna/preprocessor :background nil))))
     `(magit-diff-merge-separator   ((t (:foreground ,Laguna/preprocessor :background nil))))
     `(magit-diff-none    ((t (:foreground ,Laguna/fg :background ,Laguna/region-bg))))
-    `(magit-header    ((t (:foreground ,Laguna/blue :background nil))))
+    `(magit-header    ((t (:foreground ,Laguna/keyword :background nil))))
     `(magit-item-highlight   ((t (:foreground nil :background ,Laguna/region-bg))))
     ;;`(magit-item-mark    ((t (:foreground nil :background "darkolivegreen"))))
     ;;`(magit-key-mode-args-face   ((t (:foreground "black" :background "yellow3"))))
     `(magit-key-mode-button-face   ((t (:foreground ,Laguna/built-in :background nil))))
-    `(magit-key-mode-header-face   ((t (:foreground ,Laguna/blue :background nil))))
+    `(magit-key-mode-header-face   ((t (:foreground ,Laguna/keyword :background nil))))
     ;;`(magit-key-mode-switch-face  ((t (:foreground "red" :background nil :weight bold))))
     `(magit-log-author    ((t (:foreground ,Laguna/types :background nil))))
     `(magit-log-author-date-cutoff  ((t (:foreground ,Laguna/types :background nil :weight bold))))
@@ -712,14 +712,14 @@
     ;;`(magit-log-reflog-label-rebase  ((t (:foreground "DarkSeaGreen2" :background "Grey11"))))
     ;;`(magit-log-reflog-label-remote  ((t (:foreground nil :background "Grey50"))))
     ;;`(magit-log-reflog-label-reset  ((t (:foreground "IndianRed4" :background "IndianRed1"))))
-    `(magit-log-sha1    ((t (:foreground ,Laguna/purple :background nil))))
-    `(magit-section-title   ((t (:foreground ,Laguna/blue :background nil))))
-    `(magit-tag     ((t (:foreground ,Laguna/blue :background nil))))
+    `(magit-log-sha1    ((t (:foreground ,Laguna/consquotest :background nil))))
+    `(magit-section-title   ((t (:foreground ,Laguna/keyword :background nil))))
+    `(magit-tag     ((t (:foreground ,Laguna/keyword :background nil))))
     ;;`(magit-valid-signature   ((t (:foreground "PaleTurquoise" :background nil :weight bold))))
     `(magit-whitespace-warning-face  ((t (:foreground ,Laguna/bg :background "white" :weight bold))))
 
     `(git-gutter:deleted   ((t (:foreground ,Laguna/types :background nil :weight bold))))
-    `(git-gutter:modified  ((t (:foreground ,Laguna/purple :background nil :weight bold))))
+    `(git-gutter:modified  ((t (:foreground ,Laguna/consquotest :background nil :weight bold))))
     `(git-gutter:separator ((t (:foreground ,Laguna/preprocessor :background nil :weight bold))))
     `(git-gutter:unchanged ((t (:foreground ,Laguna/param-names :background nil))))
 
@@ -734,7 +734,7 @@
     `(font-latex-doctex-documentation-face ((t (:background unspecified))))
     `(font-latex-doctex-preprocessor-face  ((t (:inherit (font-latex-doctex-documentation-face font-lock-builtin-face font-lock-preprocessor-face)))))
     `(font-latex-italic-face               ((t (:inherit italic :foreground ,Laguna/comment-text))))
-    `(font-latex-math-face                 ((t (:foreground ,Laguna/purple))))
+    `(font-latex-math-face                 ((t (:foreground ,Laguna/consquotest))))
     `(font-latex-sectioning-0-face         ((t (:inherit font-latex-sectioning-1-face :height 1.1))))
     `(font-latex-sectioning-1-face         ((t (:inherit font-latex-sectioning-2-face :height 1.1))))
     `(font-latex-sectioning-2-face         ((t (:inherit font-latex-sectioning-3-face :height 1.1))))
@@ -750,14 +750,14 @@
 
     ;; guide-key
     `(guide-key/prefix-command-face    ((t (:foreground ,Laguna/main))))
-    `(guide-key/highlight-command-face ((t (:foreground ,Laguna/blue))))
+    `(guide-key/highlight-command-face ((t (:foreground ,Laguna/keyword))))
     `(guide-key/key-face               ((t (:foreground ,Laguna/comment-text))))
 
     ;; custom
     `(custom-button                  ((t (:foreground nil :background nil))))
     `(custom-button-mouse            ((t (:foreground nil :background nil))))
     `(custom-button-pressed          ((t (:foreground nil :background nil))))
-    `(custom-button-pressed-unraised ((t (:foreground ,Laguna/purple :background nil))))
+    `(custom-button-pressed-unraised ((t (:foreground ,Laguna/consquotest :background nil))))
     `(custom-button-unraised         ((t (:foreground nil :background nil))))
     `(custom-changed                 ((t (:foreground ,Laguna/types :background nil))))
     `(custom-comment                 ((t (:foreground ,Laguna/bg :background ,Laguna/param-names))))
@@ -781,7 +781,7 @@
 
     `(neo-banner-face              ((t (:foreground ,Laguna/built-in :background nil :weight bold))))
     `(neo-button-face              ((t (:foreground nil :background nil))))
-    `(neo-dir-link-face            ((t (:foreground ,Laguna/blue :background nil))))
+    `(neo-dir-link-face            ((t (:foreground ,Laguna/keyword :background nil))))
     `(neo-expand-btn-face          ((t (:foreground ,Laguna/fg :background nil))))
     `(neo-file-link-face           ((t (:foreground ,Laguna/fg :background nil))))
     `(neo-header-face              ((t (:foreground ,Laguna/fg :background nil))))
@@ -794,7 +794,7 @@
     `(neo-vc-missing-face          ((t (:foreground ,Laguna/types :background nil))))
     `(neo-vc-needs-merge-face      ((t (:foreground ,Laguna/preprocessor :background nil))))
     `(neo-vc-needs-update-face     ((t (:foreground nil :background nil :underline t))))
-    `(neo-vc-removed-face          ((t (:foreground ,Laguna/purple :background nil))))
+    `(neo-vc-removed-face          ((t (:foreground ,Laguna/consquotest :background nil))))
     `(neo-vc-unlocked-changes-face ((t (:foreground ,Laguna/types :background "Blue"))))
     `(neo-vc-unregistered-face     ((t (:foreground nil :background nil))))
     `(neo-vc-up-to-date-face       ((t (:foreground ,Laguna/fg :background nil))))
@@ -819,7 +819,7 @@
   (custom-theme-set-variables
     'laguna
     `(ansi-color-names-vector
-       [,Laguna/mode-line-bg ,Laguna/types ,Laguna/main ,Laguna/param-names ,Laguna/blue ,Laguna/purple ,Laguna/link ,Laguna/fg])))
+       [,Laguna/mode-line-bg ,Laguna/types ,Laguna/main ,Laguna/param-names ,Laguna/keyword ,Laguna/consquotest ,Laguna/link ,Laguna/fg])))
 
 ;;;###autoload
 (when load-file-name
@@ -837,4 +837,4 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; laguna.el ends here
+;;; laguna-theme.el ends here
