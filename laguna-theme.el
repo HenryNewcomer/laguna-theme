@@ -75,7 +75,7 @@
        (Laguna/gradient3 "#e9d8b9")
        (Laguna/gradient4 "#cfdcb7")
        (Laguna/gradient5 "#b9deb8")
-       (Laguna/paren-match-bg "#694b26") ;; TODO Change color?
+       (Laguna/paren-match-bg "#4b667e")
        (Laguna/paren-match-fg "#fff")
 
        (Laguna/number "#834079") ;; FIXME "Highlight numbers" pkg overrides rainbow-mode functionality
