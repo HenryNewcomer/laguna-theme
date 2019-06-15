@@ -47,9 +47,11 @@
        (Laguna/warning "#e34e3e") ;; Red(ish) color; ex. errors, magit changes (-)
        (Laguna/built-in "#585ca6") ;; ex. :foreground, :background, :weight, etc.
        (Laguna/preprocessor "#423f68") ;; #include
-       (Laguna/quotes "#65a9e3")
+       ;; (Laguna/quotes "#27513f")
+       (Laguna/quotes "#27513f")
        (Laguna/elisp-func-desc "#65a9e3")
-       (Laguna/param-names "#f0edd2")
+       (Laguna/param-names "#b3ae80")
+       ;; (Laguna/param-names "#f0edd2")
        (Laguna/minibuffer-prompt "#5fabe1")
        (Laguna/consquotest "#36585c") ;; ex. std in std::getchar
        (Laguna/comment-symbols "#424857")
@@ -67,13 +69,28 @@
        (Laguna/current-line-side-fg "#181b29")
 
        ;; Gradients (Parentheses, org heiarchy, etc.)
-       (Laguna/gradient0 "#215529")
-       (Laguna/gradient1 "#468877") ;; ex. () within std::getchar()
-       (Laguna/gradient2 "#67b1cd")
-       (Laguna/gradient3 "#98c3f1")
-       (Laguna/gradient4 "#a1aaf1")
-       (Laguna/gradient5 "#aa98f1")
-       (Laguna/paren-match-bg "#694b26")
+       ;; (Laguna/gradient0 "#215529")
+       ;; (Laguna/gradient1 "#468877") ;; ex. () within std::getchar()
+       ;; (Laguna/gradient2 "#67b1cd")
+       ;; (Laguna/gradient3 "#98c3f1")
+       ;; (Laguna/gradient4 "#a1aaf1")
+       ;; (Laguna/gradient5 "#aa98f1")
+
+       ;; (Laguna/gradient0 "#67b1cd")
+       ;; (Laguna/gradient1 "#8db0eb") ;; ex. () within std::getchar()
+       ;; (Laguna/gradient2 "#9e99f0")
+       ;; (Laguna/gradient3 "#b393f1")
+       ;; (Laguna/gradient4 "#d093ef")
+       ;; (Laguna/gradient5 "#f193eb")
+
+       (Laguna/gradient0 "#67b1cd")
+       (Laguna/gradient1 "#a7c1c4") ;; ex. () within std::getchar()
+       (Laguna/gradient2 "#ded0bc")
+       (Laguna/gradient3 "#e9d8b9")
+       (Laguna/gradient4 "#cfdcb7")
+       (Laguna/gradient5 "#b9deb8")
+
+       (Laguna/paren-match-bg "#694b26") ;; TODO Change color?
        (Laguna/paren-match-fg "#fff")
 
        (Laguna/number "#834079") ;; FIXME "Highlight numbers" pkg overrides rainbow-mode functionality
