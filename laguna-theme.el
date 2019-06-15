@@ -69,27 +69,12 @@
        (Laguna/current-line-side-fg "#181b29")
 
        ;; Gradients (Parentheses, org heiarchy, etc.)
-       ;; (Laguna/gradient0 "#215529")
-       ;; (Laguna/gradient1 "#468877") ;; ex. () within std::getchar()
-       ;; (Laguna/gradient2 "#67b1cd")
-       ;; (Laguna/gradient3 "#98c3f1")
-       ;; (Laguna/gradient4 "#a1aaf1")
-       ;; (Laguna/gradient5 "#aa98f1")
-
-       ;; (Laguna/gradient0 "#67b1cd")
-       ;; (Laguna/gradient1 "#8db0eb") ;; ex. () within std::getchar()
-       ;; (Laguna/gradient2 "#9e99f0")
-       ;; (Laguna/gradient3 "#b393f1")
-       ;; (Laguna/gradient4 "#d093ef")
-       ;; (Laguna/gradient5 "#f193eb")
-
        (Laguna/gradient0 "#67b1cd")
        (Laguna/gradient1 "#a7c1c4") ;; ex. () within std::getchar()
        (Laguna/gradient2 "#ded0bc")
        (Laguna/gradient3 "#e9d8b9")
        (Laguna/gradient4 "#cfdcb7")
        (Laguna/gradient5 "#b9deb8")
-
        (Laguna/paren-match-bg "#694b26") ;; TODO Change color?
        (Laguna/paren-match-fg "#fff")
 
