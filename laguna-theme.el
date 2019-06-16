@@ -3,6 +3,7 @@
 ;; Filename: laguna-theme.el
 ;; Description: Easy on the eyes; focus on importance.
 ;; Author: Henry Newcomer <a.cliche.email@gmail.com>
+;; Version: 0.1
 ;; URL: https://github.com/henrynewcomer/laguna
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -61,7 +62,7 @@
        (Laguna/vertical-line "#141923")
        (Laguna/types "#c59962") ;; Function type, param type, etc. (ex. int, char, ...)
        (Laguna/cursor-bg "#b0c3e9")
-       (Laguna/cursor-fg "#141922")
+       ;; (Laguna/cursor-fg "#141922")
        (Laguna/fringe "#0c0f15") ;; Outside border of window (and splits)
        (Laguna/line-number-fg "#293144") ;; The font color for line numbers
        (Laguna/current-line-text-area-bg "#0c0f15")
@@ -88,7 +89,7 @@
        (Laguna/undefined1 "#0f0")
        (Laguna/undefined2 "#0f0")
        (Laguna/undefined3 "#0f0")
-       (Laguna/undefined4 "#0f0") ;; TODO Remove?
+       ;; (Laguna/undefined4 "#0f0") ;; TODO Remove?
        ;; (Laguna/good-bg "#478540") ;; Success, magit changes (+)
        ;; (Laguna/good-fg "#b2ddad") ;; Success, magit changes (+)
 
