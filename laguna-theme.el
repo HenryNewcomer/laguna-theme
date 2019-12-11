@@ -4,7 +4,7 @@
 ;; Description: Easy on the eyes; focus on importance.
 ;; Author: Henry Newcomer <a.cliche.email@gmail.com>
 ;; Version: 0.1
-;; URL: https://github.com/henrynewcomer/laguna
+;; URL: https://github.com/HenryNewcomer/laguna-theme
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
