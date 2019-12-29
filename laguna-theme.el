@@ -102,7 +102,7 @@
     `laguna ;; you must use the same theme name here...
     `(default ((t (:foreground ,color-fg :background ,color-bg))))
     `(cursor  ((t (:foreground ,color-fg :background ,color-cursor-bg))))
-    `(face-spec-set column-enforce-face '((t (:foreground warning :bold t :underline t))))
+    `(face-spec-set column-enforce-face '((t (:foreground ,color-warning :bold t :underline t))))
     `(fringe  ((t (:background ,color-fringe))))
     `(highlight  ((t (:foreground ,color-region-fg :background ,color-region-bg))))
     `(highlight-numbers-number ((t (:foreground ,color-number :weight bold))))
