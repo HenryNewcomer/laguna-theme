@@ -1,12 +1,12 @@
 # "Laguna" Theme for Emacs
 * Laguna Theme
 
-[Screenshots coming soon.]
+![screenshot](https://raw.githubusercontent.com/HenryNewcomer/laguna-theme/master/images/2020-09-22.png)
 
-  - DESC
-  - Full colored GUI; 256 color terminal support ONLY (at the moment).
-** Installation
-    Laguna Theme is on MELPA. Please verify that MELPA has been added to your package archives.
+Description:
+  - Full colored GUI; 256 color terminal support.
+Installation:
+  - Laguna Theme is on MELPA. Please verify that MELPA has been added to your package archives.
     #+BEGIN_SRC emacs-lisp
       (load-theme 'laguna t t)
       (enable-theme 'laguna)
@@ -18,7 +18,7 @@
         :ensure t)
     #+END_SRC
     
-** Terminal Colors look wonky? Try this:
+Terminal Colors look wonky? See if this helps:
    #+BEGIN_SRC shell-script
      # throw this in your ~/.bash_profile
      export TERM="xterm-256color"
