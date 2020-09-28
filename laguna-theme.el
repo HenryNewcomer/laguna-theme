@@ -45,7 +45,7 @@
        (color-keyword "#554f91") ;; ex. return,  let
        (color-search-bg "#4a2579") ;; ex. Highlighted search text
        (color-search-fg "#bb9ddf") ;; ex. Highlighted search text
-       (color-warning "#e34e3e") ;; Red(ish) color; ex. errors, magit changes (-)
+       (color-warning "#e34e3e") ;; Red(ish) color; ex. errors
        (color-built-in "#585ca6") ;; ex. :foreground, :background, :weight, etc.
        (color-preprocessor "#423f68") ;; #include
        ;; (color-quotes "#27513f")
@@ -79,6 +79,12 @@
        (color-paren-match-bg "#4b667e")
        (color-paren-match-fg "#fff")
 
+       ;; Magit
+       (color-add-fg "#80bf99")
+       (color-add-bg "#1e2e30")
+       (color-remove-fg "#c598a5")
+       (color-remove-bg "#371f26")
+
        (color-number "#834079") ;; FIXME "Highlight numbers" pkg overrides rainbow-mode functionality
 
        (color-region-bg "#5a798d")
@@ -90,11 +96,10 @@
        (color-undefined2 "#0f0")
        (color-undefined3 "#0f0")
        ;; (color-undefined4 "#0f0") ;; TODO Remove?
-       ;; (color-good-bg "#478540") ;; Success, magit changes (+)
-       ;; (color-good-fg "#b2ddad") ;; Success, magit changes (+)
 
        ;; Main background and foreground colors
        (color-bg "#141922")
+       (color-bg-2 "#151f32") ;; Some random areas may want to be slightly offset from the background color
        (color-fg "#3e6f92")) ;; Regular text color; ex. ::getchar in std::getchar()
 
   ;; Set faces
@@ -442,15 +447,15 @@
     `(diff-changed           ((t (:background nil :foreground ,color-param-names))))
     `(diff-removed           ((t (:background nil :foreground ,color-types))))
     `(diff-context           ((t (:foreground ,color-comment-text :background nil))))
-    `(diff-file-header       ((t (:foreground ,color-bg :background "grey60" :weight bold))))
-    `(diff-function          ((t (:foreground ,color-bg :background "grey50"))))
-    `(diff-header            ((t (:foreground ,color-bg :background "grey50"))))
-    `(diff-hunk-header       ((t (:foreground ,color-bg :background "grey50"))))
-    `(diff-index             ((t (:foreground ,color-bg :background "grey50"))))
+    `(diff-file-header       ((t (:foreground ,color-bg :background nil :weight bold))))
+    `(diff-function          ((t (:foreground ,color-bg :background nil))))
+    `(diff-header            ((t (:foreground ,color-bg :background nil))))
+    `(diff-hunk-header       ((t (:foreground ,color-bg :background nil))))
+    `(diff-index             ((t (:foreground ,color-bg :background nil))))
     `(diff-indicator-added   ((t (:inherit diff-added))))
     `(diff-indicator-changed ((t (:inherit diff-changed))))
     `(diff-indicator-removed ((t (:inherit diff-removed))))
-    `(diff-nonexistent       ((t (:foreground nil :background "grey70"))))
+    `(diff-nonexistent       ((t (:foreground nil :background nil))))
     `(diff-refine-added      ((t (:foreground nil :background "#649694")))())
     `(diff-refine-changed    ((t (:foreground nil :background "#8f8f40"))))
     `(diff-refine-removed    ((t (:foreground nil :background "#694949"))))
@@ -660,27 +665,59 @@
     `(whitespace-trailing  ((t (:foreground ,color-gradient3 :background ,color-bg :weight bold))))
 
     ;; magit
-    ;; new
     `(magit-section-heading        ((t (:foreground ,color-keyword, :background nil))))
     `(magit-hash                   ((t (:foreground ,color-consquotest :background nil))))
     `(magit-branch-local           ((t (:foreground ,color-preprocessor :background nil))))
     `(magit-branch-remote          ((t (:foreground ,color-param-names :background nil))))
 
-    `(magit-diff-added-highlight   ((t (:background ,color-region-bg :foreground ,color-main))))
-    `(magit-diff-removed-highlight ((t (:background ,color-region-bg :foreground ,color-types))))
-    `(magit-diff-added             ((t (:background nil :foreground ,color-main))))
-    `(magit-diff-removed           ((t (:background nil :foreground ,color-types))))
+    `(magit-diff-added             ((t (:background ,color-add-bg :foreground ,color-add-fg))))
+    `(magit-diff-added-highlight   ((t (:background ,color-add-bg :foreground ,color-add-fg))))
+    `(magit-diff-removed           ((t (:background ,color-remove-bg :foreground ,color-remove-fg))))
+    `(magit-diff-removed-highlight ((t (:background ,color-remove-bg :foreground ,color-remove-fg))))
 
-    `(magit-blame-date             ((t (:foreground ,color-consquotest :background "grey25"))))
-    `(magit-blame-hash             ((t (:foreground ,color-consquotest :background "grey25"))))
-    `(magit-blame-heading          ((t (:foreground ,color-keyword :background "grey25"))))
-    `(magit-blame-name             ((t (:foreground ,color-main :background "grey25"))))
-    `(magit-blame-summary          ((t (:foreground ,color-keyword :background "grey25"))))
+    ;; Prevents default, gray backgrounds
+    ;; Solution based on https://github.com/tee3/unobtrusive-magit-theme/blob/master/unobtrusive-magit-theme.el
+    `(magit-diff-context-highlight  ((t (:inherit magit-diff-context))))
+    `(magit-diff-file-heading           ((t (:background "#2d3144" :foreground nil))))
+    `(magit-diff-file-heading-highlight           ((t (:background "#323958" :foreground nil))))
+    `(magit-diff-file-heading-selection        ((t (:inherit magit-diff-file-heading))))
+    `(magit-section-heading            ((t (:inherit font-lock-type-face))))
+    `(magit-section-heading-selection        ((t (:weight bold))))
+    `(magit-section-heading-secondary-heading    ((t (:inherit magit-section-heading-selection))))
+    `(magit-section-highlight           ((t (:background "#0c0f15" :foreground "#5558a6" :weight bold))))
+    `(magit-diff-hunk-heading           ((t (:background "#1b1f2f" :foreground nil))))
+    `(magit-diff-hunk-heading-highlight        ((t (:inherit magit-diff-hunk-heading))))
+    `(magit-diff-hunk-heading-selection        ((t (:inherit magit-diff-hunk-heading))))
+    `(magit-diff-hunk-region            ((t (:inherit magit-diff-hunk-heading))))
+    `(magit-blame-date             ((t (:foreground ,color-consquotest :background ,color-bg-2))))
+    `(magit-blame-hash             ((t (:foreground ,color-consquotest :background ,color-bg-2))))
+    `(magit-blame-heading          ((t (:foreground ,color-keyword :background ,color-bg-2))))
+    `(magit-blame-name             ((t (:foreground ,color-main :background ,color-bg-2))))
+    `(magit-blame-summary          ((t (:foreground ,color-keyword :background ,color-bg-2))))
+    `(magit-dimmed                ((t (:inherit shadow))))
+    `(magit-hash                    ((t (:inherit log-view-message))))
+    `(magit-keyword                ((t (:inherit default))))
+    `(magit-tag                    ((t (:inherit change-log-list))))
+    `(magit-head                    ((t (:inherit change-log-list :inverse-video t))))
+    `(magit-filename                ((t (:inherit change-log-file))))
 
-    ;; old
+    ;; NOTE If odd colors appear, give these vars a look:
+    ;;`(git-commit-summary                ((t (:inherit log-edit-summary))))
+    ;;`(git-commit-overlong-summary        ((t (:inherit warning))))
+    ;;`(git-commit-nonempty-second-line        ((t (:inherit warning))))
+    ;;`(git-commit-note                ((t (:inherit default))))
+    ;;`(git-commit-pseudo-header            ((t (:inherit log-edit-unknown-header))))
+    ;;`(git-commit-known-pseudo-header        ((t (:inherit git-commit-pseudo-header))))
+    ;;`(git-commit-comment-action            ((t (:inherit font-lock-comment-face))))
+    ;;`(git-commit-comment-branch-local        ((t (:inherit font-lock-comment-face))))
+    ;;`(git-commit-comment-branch-remote        ((t (:inherit font-lock-comment-face))))
+    ;;`(git-commit-comment-detached        ((t (:inherit font-lock-comment-face))))
+    ;;`(git-commit-comment-file            ((t (:inherit font-lock-comment-face))))
+    ;;`(git-commit-comment-heading            ((t (:inherit font-lock-comment-face))))
+    ;;`(git-commit-comment-keyword            ((t (:inherit font-lock-comment-face))))
+
+    ;; Old vars (check if these are deprecated)
     `(magit-branch    ((t (:foreground ,color-preprocessor :background nil))))
-    ;;`(magit-cherry-equivalent   ((t (:foreground "cyan" :background nil))))
-    ;;`(magit-cherry-unmatched   ((t (:foreground "magenta" :background nil))))
     `(magit-diff-add    ((t (:background nil :foreground ,color-main))))
     `(magit-diff-del    ((t (:background nil :foreground ,color-types))))
     `(magit-diff-file-header   ((t (:foreground ,color-bg :background ,color-keyword :weight bold))))
@@ -692,37 +729,15 @@
     `(magit-diff-none    ((t (:foreground ,color-fg :background ,color-region-bg))))
     `(magit-header    ((t (:foreground ,color-keyword :background nil))))
     `(magit-item-highlight   ((t (:foreground nil :background ,color-region-bg))))
-    ;;`(magit-item-mark    ((t (:foreground nil :background ,color-undefined4))
-    ;;`(magit-key-mode-args-face   ((t (:foreground "black" :background "yellow3"))))
     `(magit-key-mode-button-face   ((t (:foreground ,color-built-in :background nil))))
     `(magit-key-mode-header-face   ((t (:foreground ,color-keyword :background nil))))
-    ;;`(magit-key-mode-switch-face  ((t (:foreground "red" :background nil :weight bold))))
     `(magit-log-author    ((t (:foreground ,color-types :background nil))))
     `(magit-log-author-date-cutoff  ((t (:foreground ,color-types :background nil :weight bold))))
     `(magit-log-date    ((t (:foreground nil :background nil))))
-    `(magit-log-graph    ((t (:foreground "grey80" :background nil))))
-    ;;`(magit-log-head-label-bisect-bad  ((t (:foreground "IndianRed4" :background "IndianRed1"))))
-    ;;`(magit-log-head-label-bisect-good  ((t (:foreground ,color-undefined4 :background "light green"))))
-    ;;`(magit-log-head-label-default  ((t (:foreground nil :background "Grey50"))))
-    ;;`(magit-log-head-label-head  ((t (:foreground "White" :background "Grey20"))))
-    ;;`(magit-log-head-label-local  ((t (:foreground "LightSkyBlue1" :background "Grey13"))))
-    ;;`(magit-log-head-label-patches  ((t (:foreground "IndianRed4" :background "IndianRed1"))))
-    ;;`(magit-log-head-label-remote  ((t (:foreground "DarkSeaGreen2" :background "Grey11"))))
-    ;;`(magit-log-head-label-tags  ((t (:foreground "goldenrod4" :background "LemonChiffon1"))))
-    ;;`(magit-log-message   ((t (:foreground nil :background nil))))
-    ;;`(magit-log-reflog-label-amend  ((t (:foreground "goldenrod4" :background "LemonChiffon1"))))
-    ;;`(magit-log-reflog-label-checkout  ((t (:foreground "LightSkyBlue1" :background "Grey13"))))
-    ;;`(magit-log-reflog-label-cherry-pick ((t (:foreground ,color-undefined4 :background "light green"))))
-    ;;`(magit-log-reflog-label-commit  ((t (:foreground "goldenrod4" :background "LemonChiffon1"))))
-    ;;`(magit-log-reflog-label-merge  ((t (:foreground "goldenrod4" :background "LemonChiffon1"))))
-    ;;`(magit-log-reflog-label-other  ((t (:foreground nil :background "Grey50"))))
-    ;;`(magit-log-reflog-label-rebase  ((t (:foreground "DarkSeaGreen2" :background "Grey11"))))
-    ;;`(magit-log-reflog-label-remote  ((t (:foreground nil :background "Grey50"))))
-    ;;`(magit-log-reflog-label-reset  ((t (:foreground "IndianRed4" :background "IndianRed1"))))
+    `(magit-log-graph    ((t (:foreground ,color-bg-2 :background nil))))
     `(magit-log-sha1    ((t (:foreground ,color-consquotest :background nil))))
     `(magit-section-title   ((t (:foreground ,color-keyword :background nil))))
     `(magit-tag     ((t (:foreground ,color-keyword :background nil))))
-    ;;`(magit-valid-signature   ((t (:foreground "PaleTurquoise" :background nil :weight bold))))
     `(magit-whitespace-warning-face  ((t (:foreground ,color-bg :background "white" :weight bold))))
 
     `(git-gutter:deleted   ((t (:foreground ,color-types :background nil :weight bold))))
