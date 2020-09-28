@@ -48,15 +48,13 @@
        (color-warning "#e34e3e") ;; Red(ish) color; ex. errors
        (color-built-in "#585ca6") ;; ex. :foreground, :background, :weight, etc.
        (color-preprocessor "#423f68") ;; #include
-       ;; (color-quotes "#27513f")
        (color-quotes "#27513f")
        (color-elisp-func-desc "#65a9e3")
        (color-param-names "#b3ae80")
-       ;; (color-param-names "#f0edd2")
        (color-minibuffer-prompt "#5fabe1")
        (color-consquotest "#36585c") ;; ex. std in std::getchar
        (color-comment-symbols "#424857")
-       (color-comment-text "#424857")
+       (color-comment-text "#485264")
        (color-mode-line-bg "#090b12")
        (color-mode-line-fg "#707f9c")
        (color-vertical-line "#141923")
