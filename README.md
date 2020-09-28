@@ -5,6 +5,7 @@
 
 
 *([Magit](https://magit.vc/) support)*:
+
 ![screenshot](https://raw.githubusercontent.com/HenryNewcomer/laguna-theme/master/images/2020-09-29-magit.png)
 
 
