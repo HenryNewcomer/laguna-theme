@@ -4,7 +4,8 @@
 ![screenshot](https://raw.githubusercontent.com/HenryNewcomer/laguna-theme/master/images/2020-09-22.png)
 
 ![screenshot](https://raw.githubusercontent.com/HenryNewcomer/laguna-theme/master/images/2020-09-29-magit.png)
-*[Magit](https://magit.vc/) support*
+
+*([Magit](https://magit.vc/) support)*
 
 **Laguna** is my personal and default emacs theme. It was designed with a "calm" sense in mind since most
 themes tend to be too contrasting for my own comfort. Other themes are often too bright or use colors that
