@@ -33,7 +33,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(deftheme laguna "A theme that's easy on the eyes & focuses on importance.")
+(deftheme laguna "A blue, dark, calm emacs theme that's easy on the eyes.")
 
 ;; TODO:
 ;; Add flycheck
