@@ -1,16 +1,17 @@
-;;; laguna-theme.el --- A theme that's easy on the eyes & focuses on importance.
+;;; laguna-theme.el --- An updated blue-green Laguna Theme.
 ;;
 ;; Filename: laguna-theme.el
-;; Description: Easy on the eyes; focus on importance.
+;; Description: An updated blue-green Laguna Theme.
 ;; Author: Henry Newcomer <a.cliche.email@gmail.com>
-;; Version: 0.1
+;; Version: 2.0
 ;; URL: https://github.com/HenryNewcomer/laguna-theme
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary:
 ;;
-;;  Framework based on the initial structure found within "Ample Theme"
-;;  (originally created by Jordon Biondo)
+;;  Framework based on the initial code found within "Ample Theme"
+;;  by Jordon Biondo.
 ;;  URL: https://github.com/jordonbiondo/ample-theme
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -33,76 +34,72 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Code:
-(deftheme laguna "A blue, dark, calm emacs theme that's easy on the eyes.")
-
-;; TODO:
-;; Add flycheck
-;; Figure out how to change foreground color for mouse-face (such as inside org)
+(deftheme laguna "An updated blue-green Laguna Theme.")
 
 ;; Color palette
 (let (
-       (color-main "#39a063") ;; ex. main function
-       (color-keyword "#554f91") ;; ex. return,  let
-       (color-search-bg "#4a2579") ;; ex. Highlighted search text
-       (color-search-fg "#bb9ddf") ;; ex. Highlighted search text
-       (color-warning "#e34e3e") ;; Red(ish) color; ex. errors
-       (color-built-in "#585ca6") ;; ex. :foreground, :background, :weight, etc.
-       (color-preprocessor "#423f68") ;; #include
-       (color-quotes "#27513f")
-       (color-elisp-func-desc "#65a9e3")
-       (color-param-names "#b3ae80")
-       (color-minibuffer-prompt "#5fabe1")
-       (color-consquotest "#36585c") ;; ex. std in std::getchar
-       (color-comment-symbols "#424857")
-       (color-comment-text "#485264")
-       (color-mode-line-bg "#090b12")
-       (color-mode-line-fg "#707f9c")
-       (color-vertical-line "#141923")
-       (color-types "#c59962") ;; Function type, param type, etc. (ex. int, char, ...)
-       (color-cursor-bg "#b0c3e9")
-       ;; (color-cursor-fg "#141922")
-       (color-fringe "#0c0f15") ;; Outside border of window (and splits)
-       (color-line-number-fg "#293144") ;; The font color for line numbers
-       (color-current-line-text-area-bg "#0c0f15")
-       (color-current-line-side-bg "#4b667e")
-       (color-current-line-side-fg "#181b29")
+  ;; Main background and foreground colors
+  (color-bg "#191f2b")
+  (color-bg-2 "#141922") ;; Some random areas may want to be slightly offset from the background color
+  (color-fg "#3b78d3") ;; Regular text color; ex. ::getchar in std::getchar()
+  (color-fg-alt "#a9e3ad") ;; NOTE Not actually used at the moment.
+  (color-fringe "#0c0e14") ;; Outside border of window and splits
+  (color-main "#a2efb4") ;; ex. main function
+  (color-error "#e34e3e")
+  (color-warning "#e34e3e")
+  (color-keyword "#469281") ;; ex. return,  let
+  (color-search-bg "#3298c3") ;; ex. Highlighted search text
+  (color-search-fg "#000") ;; ex. Highlighted search text
+  (color-built-in "#e8f6e6") ;; ex. :foreground, :background, :weight, etc.
+  (color-preprocessor "#423f68") ;; #include
+  (color-quotes "#128157")
+  (color-elisp-func-desc "#65a9e3")
+  (color-param-names "#83a598")
+  (color-minibuffer-prompt "#94d68c")
+  (color-consquotest "#36585c") ;; ex. std in std::getchar
+  (color-comment-symbols "#647769")
+  (color-comment-text "#82aabf")
+  (color-mode-line-bg "#0c0f15")
+  (color-mode-line-fg "#7694b0")
+  (color-vertical-line "#141923")
+  (color-types "#7cb8e7") ;; Function type, param type, etc. (ex. int, char, ...)
+  (color-cursor-bg "#f19e64")
+  (color-cursor-bg-alt "#7cb8e7")
+  (color-constant "#20905f")
+  ;; (color-cursor-fg "#141922")
+  (color-line-number-fg "#2e5163") ;; The font color for line numbers
+  (color-current-line-text-area-bg "#141923")
+  (color-current-line-side-bg "#1c3445")
+  (color-current-line-side-fg "#b2c5d4")
+  ;; Gradients (Parentheses, org heiarchy, etc.)
+; (message (((((((message "Example."))))))))
+  (color-gradient0 "#7fb486")
+  (color-gradient1 "#53a451") ;; ex. () within std::getchar()
+  (color-gradient2 "#43a4bd")
+  (color-gradient3 "#674593")
+  (color-gradient4 "#aa17ed")
+  (color-gradient5 "#3b78d3")
+  (color-paren-match-bg "#6b4841")
+  (color-paren-match-fg "#f19e64")
+  ;; Magit
+  (color-add-fg "#335d39")
+  (color-add-bg "#00f;")
+  (color-remove-fg "#5e1c1c")
+  (color-remove-bg "#a56969")
+  (color-number "#834079") ;; FIXME "Highlight numbers" pkg overrides rainbow-mode functionality.
+  (color-region-bg "#3d78b0")
+  (color-region-fg "#141923")
 
-       ;; Gradients (Parentheses, org heiarchy, etc.)
-       (color-gradient0 "#67b1cd")
-       (color-gradient1 "#a7c1c4") ;; ex. () within std::getchar()
-       (color-gradient2 "#ded0bc")
-       (color-gradient3 "#e9d8b9")
-       (color-gradient4 "#cfdcb7")
-       (color-gradient5 "#b9deb8")
-       (color-paren-match-bg "#4b667e")
-       (color-paren-match-fg "#fff")
-
-       ;; Magit
-       (color-add-fg "#80bf99")
-       (color-add-bg "#1e2e30")
-       (color-remove-fg "#c598a5")
-       (color-remove-bg "#371f26")
-
-       (color-number "#834079") ;; FIXME "Highlight numbers" pkg overrides rainbow-mode functionality
-
-       (color-region-bg "#5a798d")
-       (color-region-fg "#141923")
-
-       ;; Not yet configured...
-       (color-link "#0f0")
-       ;; (color-undefined1 "#0f0")
-       (color-undefined2 "#0f0")
-       (color-undefined3 "#0f0")
-       ;; (color-undefined4 "#0f0") ;; TODO Remove?
-
-       ;; Main background and foreground colors
-       (color-bg "#141922")
-       (color-bg-2 "#151f32") ;; Some random areas may want to be slightly offset from the background color
-       (color-fg "#3e6f92")) ;; Regular text color; ex. ::getchar in std::getchar()
+  ;; Not yet configured...
+  (color-link "#0f0")
+  (color-undefined1 "#0f0")
+  (color-undefined2 "#0f0")
+  (color-undefined3 "#0f0"))
 
   ;; Set faces
   (custom-theme-set-faces
     `laguna ;; you must use the same theme name here...
+    `(error ((t (:foreground ,color-error))))
     `(default ((t (:foreground ,color-fg :background ,color-bg))))
     `(cursor  ((t (:foreground ,color-fg :background ,color-cursor-bg))))
     `(face-spec-set column-enforce-face '((t (:foreground ,color-warning :bold t :underline t))))
@@ -116,9 +113,10 @@
     `(font-lock-builtin-face  ((t (:foreground ,color-built-in :weight bold))))
     `(font-lock-comment-face  ((t (:foreground ,color-comment-text))))
     `(font-lock-comment-delimiter-face ((t (:foreground ,color-comment-symbols))))
+    `(font-lock-constant-face ((t (:foreground ,color-constant))))
     `(font-lock-function-name-face ((t (:foreground ,color-main))))
     `(font-lock-keyword-face  ((t (:foreground ,color-keyword))))
-    `(font-lock-string-face  ((t (:foreground ,color-quotes))))
+    `(font-lock-string-face  ((t (:foreground ,color-quotes :weight bold))))
     `(font-lock-preprocessor-face ((t (:foreground ,color-preprocessor))))
     `(font-lock-type-face  ((t (:foreground ,color-types :weight bold))))
     `(font-lock-consquotest-face  ((t (:foreground ,color-consquotest))))
@@ -215,12 +213,8 @@
     `(undo-tree-visualizer-unmodified-face ((t (:foreground ,color-consquotest :background nil))))
 
     ;;show paren
-    ;; TODO: Change foreground color?
     `(show-paren-match ((t (:foreground ,color-paren-match-fg :background ,color-paren-match-bg))))
     `(show-paren-mismatch ((t (:inherit error))))
-
-    ;; error
-    `(error ((t (:foreground "red"))))
 
     ;; ido
     `(ido-only-match  ((t (:foreground ,color-main))))
@@ -529,15 +523,16 @@
     ;;`(org-headline-done ((t (:foreground nil :background nil))))
     `(org-hide ((t (:foreground ,color-bg :background nil))))
     ;;`(org-latex-and-export-specials ((t (:foreground nil :background nil))))
-    `(org-level-1 ((t (:foreground ,color-gradient0 :background nil :weight bold))))
+    `(org-level-1 ((t (:foreground ,color-gradient2 :background nil :weight bold))))
     `(org-level-2 ((t (:foreground ,color-gradient1 :background nil :weight bold))))
-    `(org-level-3 ((t (:foreground ,color-gradient2 :background nil :weight bold))))
+    `(org-level-3 ((t (:foreground ,color-gradient0 :background nil :weight bold))))
     `(org-level-4 ((t (:foreground ,color-gradient3 :background nil :weight bold))))
     `(org-level-5 ((t (:foreground ,color-gradient4 :background nil :weight bold))))
     `(org-level-6 ((t (:foreground ,color-gradient5 :background nil :weight bold))))
-    `(org-level-7 ((t (:foreground ,color-gradient0 :background nil :weight bold))))
-    `(org-level-8 ((t (:foreground ,color-gradient1 :background nil :weight bold))))
-    ;;`(org-link ((t (:foreground "#0f0" :background "#0e121a"))))
+    `(org-level-7 ((t (:foreground ,color-gradient4 :background nil :weight bold))))
+    `(org-level-8 ((t (:foreground ,color-gradient3 :background nil :weight bold))))
+   ;'(org-link                  ((t (:foreground "royal blue" :underline t))))
+    `(org-link ((t (:foreground "#fff" :background ,color-fringe :underline t))))
     ;;`(org-list-dt ((t (:foreground nil :background nil))))
     ;;`(org-meta-line ((t (:foreground nil :background nil))))
     ;;`(org-mode-line-clock ((t (:foreground nil :background nil))))
@@ -652,14 +647,14 @@
 
     ;; whitespace mode
     `(whitespace-empty   ((t (:foreground ,color-comment-text :background "comment-text10"))))
-    `(whitespace-hspace   ((t (:foreground ,color-comment-text :background "grey11"))))
+    `(whitespace-hspace   ((t (:foreground ,color-comment-text :background ,color-line-number-fg))))
     `(whitespace-indentation  ((t (:foreground ,color-comment-text :background "comment-text12"))))
     `(whitespace-line   ((t (:foreground ,color-consquotest :background nil))))
     `(whitespace-newline   ((t (:foreground ,color-comment-text :background nil))))
     `(whitespace-space   ((t (:foreground ,color-comment-text :background nil))))
     `(whitespace-space-after-tab  ((t (:foreground ,color-comment-text :background "comment-text13"))))
     `(whitespace-space-before-tab ((t (:foreground ,color-comment-text :background "comment-text14"))))
-    `(whitespace-tab   ((t (:foreground ,color-comment-text :background "grey15"))))
+    `(whitespace-tab   ((t (:foreground ,color-comment-text :background ,color-line-number-fg))))
     `(whitespace-trailing  ((t (:foreground ,color-gradient3 :background ,color-bg :weight bold))))
 
     ;; magit
