@@ -1,7 +1,9 @@
 # "Laguna" Theme
-* **Laguna Theme for Emacs**
+* **Laguna Theme - An Emacs Theme**
 
 ![image](https://user-images.githubusercontent.com/5169660/148678108-7bf5a481-0b86-4c64-ab30-30ce250f3f06.png)
+
+![image](https://user-images.githubusercontent.com/5169660/148678637-1796756c-f269-4bcb-91aa-f073101ec223.png)
 
 
 *([Magit](https://magit.vc/) support)*:
