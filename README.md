@@ -3,6 +3,7 @@
 
 ![image](https://user-images.githubusercontent.com/5169660/148678108-7bf5a481-0b86-4c64-ab30-30ce250f3f06.png)
 
+
 ![image](https://user-images.githubusercontent.com/5169660/148678637-1796756c-f269-4bcb-91aa-f073101ec223.png)
 
 
@@ -11,7 +12,7 @@
 ![screenshot](https://raw.githubusercontent.com/HenryNewcomer/laguna-theme/master/images/2020-09-29-magit.png)
 
 
-**Laguna** is my personal emacs theme. It can be yours, too.
+**Laguna** is my personal emacs theme. You can have it, too.
 
 
 **Installation:**
