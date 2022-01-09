@@ -1,21 +1,16 @@
 # "Laguna" Theme
 * **Laguna Theme for Emacs**
 
-![screenshot](https://raw.githubusercontent.com/HenryNewcomer/laguna-theme/master/images/2020-09-22.png)
+![image](https://user-images.githubusercontent.com/5169660/148678108-7bf5a481-0b86-4c64-ab30-30ce250f3f06.png)
 
 
 *([Magit](https://magit.vc/) support)*:
-
+*This screenshot's an earlier version of the Laguna Theme.*
 ![screenshot](https://raw.githubusercontent.com/HenryNewcomer/laguna-theme/master/images/2020-09-29-magit.png)
 
 
-**Laguna** is my personal and default emacs theme. It was designed with a "calm" sense in mind since most
-themes tend to be too contrasting for my own comfort. Other themes are often too bright or use colors that
-I don't personally agree with. Instead, Laguna is designed with mostly undersaturated colors to ease
-eye-strain, especially at night. The variances in face colors were selected to blend well with
-the overall theme while also bringing more or less attention to certain areas that I feel
-need more/less focus. For example, comments are faint so that they don't draw too
-much attention while working.
+**Laguna** is my personal emacs theme. It can be yours, too.
+
 
 **Installation:**
   Laguna Theme is on MELPA. Please verify that MELPA has been added to your package archives.
@@ -28,7 +23,7 @@ much attention while working.
         :defer t
         :ensure t)
  ```
-**Terminal Colors look wonky in your terminal? Sometimes this helps:**
+**Terminal Colors look wonky in your terminal? This can sometimes helps:**
  ```
      # Throw this in your ~/.bash_profile if Laguna Theme (emacs) isn't displaying properly
      export TERM="xterm-256color"
