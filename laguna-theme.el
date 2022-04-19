@@ -67,7 +67,7 @@
   (color-cursor-bg-alt "#7cb8e7")
   (color-constant "#20905f")
   ;; (color-cursor-fg "#141922")
-  (color-line-number-fg "#2e5163") ;; The font color for line numbers
+  (color-line-number-fg "#1e252f") ;; The font color for line numbers
   (color-current-line-text-area-bg "#141923")
   (color-current-line-side-bg "#1c3445")
   (color-current-line-side-fg "#b2c5d4")
